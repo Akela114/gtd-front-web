@@ -1,18 +1,19 @@
-import { Button } from "@/shared/ui/button";
-import { Pencil } from "lucide-react";
-import type { ComponentProps, FC } from "react";
+import type { InboxMessage } from "@/entities/inbox";
+import type { FC } from "react";
+import { UpdateInboxMessageDialog } from "./update-inbox-message-dialog";
+import { UpdateInboxMessageTrigger } from "./update-inbox-message-trigger";
 
-type UpdateInboxMessageActionProps = Omit<
-	ComponentProps<typeof Button>,
-	"size" | "variant"
->;
+interface UpdateInboxMessageButtonProps {
+	inboxMessage: InboxMessage;
+}
 
-export const UpdateInboxMessageButton: FC<UpdateInboxMessageActionProps> = (
-	props,
-) => {
+export const UpdateInboxMessageButton: FC<UpdateInboxMessageButtonProps> = ({
+	inboxMessage,
+}) => {
 	return (
-		<Button size="icon" variant="outline" {...props}>
-			<Pencil />
-		</Button>
+		<UpdateInboxMessageDialog
+			inboxMessage={inboxMessage}
+			dialogTriggerElement={<UpdateInboxMessageTrigger />}
+		/>
 	);
 };

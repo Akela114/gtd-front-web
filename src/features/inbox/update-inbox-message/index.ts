@@ -1,1 +1,1 @@
-export { UpdateInboxMessageAction } from "./ui/update-inbox-message-action";
+export { UpdateInboxMessageButton } from "./ui/update-inbox-message-button";

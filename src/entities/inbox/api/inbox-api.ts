@@ -11,4 +11,6 @@ export const inboxApi = {
 				json: data,
 			})
 			.json(),
+	deleteInboxMessage: (id: InboxMessageId) =>
+		apiInstance.delete<InboxMessageDto>(`inbox-messages/${id}`).json(),
 };

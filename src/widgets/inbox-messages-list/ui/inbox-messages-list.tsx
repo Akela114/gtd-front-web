@@ -1,5 +1,6 @@
 import { InboxMessageCard, inboxQueryKeysAndOptions } from "@/entities/inbox";
-import { UpdateInboxMessageAction } from "@/features/inbox/update-inbox-message";
+import { DeleteInboxMessageButton } from "@/features/inbox/delete-inbox-message/ui/delete-inbox-message-button";
+import { UpdateInboxMessageButton } from "@/features/inbox/update-inbox-message";
 import { BaseListLayout } from "@/shared/ui/base-list-layout";
 import { useQuery } from "@tanstack/react-query";
 
@@ -17,7 +18,12 @@ export const InboxMessagesList = () => {
 					<InboxMessageCard
 						inboxMessage={message}
 						key={message.id}
-						actions={<UpdateInboxMessageAction inboxMessage={message} />}
+						actions={
+							<div className="flex gap-1 items-center">
+								<UpdateInboxMessageButton inboxMessage={message} />
+								<DeleteInboxMessageButton inboxMessage={message} />
+							</div>
+						}
 					/>
 				))}
 			</div>
