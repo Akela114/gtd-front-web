@@ -4,3 +4,7 @@ export interface InboxMessageDto {
 	createdAt: DateTimeString;
 	updatedAt: DateTimeString;
 }
+
+export interface UpdateInboxMessageDto {
+	message: string;
+}
